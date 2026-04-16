@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Średniowieczna Piekarnia VR - Gemini Flash</title>
+    <meta name="description" content="Klimatyczne wnętrze piekarni wygenerowane przez AI">
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <a-scene environment="preset: default; groundColor: #4a3121; grid: none">
+      
+      <a-assets>
+        <img id="stone-wall" src="https://cdn.glitch.global/f19f6a6b-c564-4e2b-b6d4-d577e3c15332/stone_wall.jpg?v=1713430000000" crossorigin="anonymous">
+        <img id="wood-floor" src="https://cdn.glitch.global/f19f6a6b-c564-4e2b-b6d4-d577e3c15332/wood_floor.jpg?v=1713430000000" crossorigin="anonymous">
+        <img id="brick-oven" src="https://cdn.glitch.global/f19f6a6b-c564-4e2b-b6d4-d577e3c15332/brick_oven.jpg?v=1713430000000" crossorigin="anonymous">
+        <img id="bread-texture" src="https://cdn.glitch.global/f19f6a6b-c564-4e2b-b6d4-d577e3c15332/bread_tex.jpg?v=1713430000000" crossorigin="anonymous">
+      </a-assets>
+
+      <a-plane position="0 0.01 0" rotation="-90 0 0" width="10" height="10" src="#wood-floor" repeat="4 4" roughness="1"></a-plane>
+      <a-box position="0 2.5 -5" width="10" height="5" depth="0.5" src="#stone-wall" repeat="2 1"></a-box> <a-box position="-5 2.5 0" rotation="0 90 0" width="10" height="5" depth="0.5" src="#stone-wall" repeat="2 1"></a-box> <a-box position="5 2.5 0" rotation="0 -90 0" width="10" height="5" depth="0.5" src="#stone-wall" repeat="2 1"></a-box> <a-plane position="0 5 0" rotation="90 0 0" width="10" height="10" color="#3d2819" roughness="1"></a-plane>
+
+      <a-entity position="0 0 -4.5">
+        <a-box position="0 1.25 0" width="3" height="2.5" depth="1.5" src="#brick-oven" repeat="1 1"></a-box>
+        <a-torus position="0 1.2 0.76" radius="0.5" radius-tubular="0.05" arc="180" rotation="0 0 180" color="#111"></a-torus>
+        <a-cylinder position="0 1.1 0.7" radius="0.4" height="0.1" rotation="90 0 0" color="#000"></a-cylinder>
+        <a-light type="point" color="#ff6600" intensity="1.5" distance="3" position="0 1.1 0.5">
+            <a-animation attribute="intensity" from="1.5" to="1.8" dur="500" repeat="indefinite" direction="alternate"></a-animation>
+        </a-light>
+        <a-cylinder position="0 2.8 0" radius="0.3" height="1" color="#222"></a-cylinder>
+      </a-entity>
+
+      <a-box position="-3 0.5 -2.5" width="2.5" height="1" depth="0.8" color="#5c4033" roughness="0.8"></a-box>
+      <a-box position="-2.7 1.05 -2.5" width="0.3" height="0.15" depth="0.2" src="#bread-texture" rotation="0 15 0"></a-box>
+      <a-box position="-3.1 1.05 -2.4" width="0.4" height="0.18" depth="0.2" src="#bread-texture" rotation="0 -10 0"></a-box>
+      <a-box position="-3.5 1.05 -2.6" width="0.25" height="0.12" depth="0.25" src="#bread-texture" rotation="0 30 0"></a-box>
+
+      <a-cylinder position="3 0.6 -3" radius="0.4" height="1.2" color="#6f4e37" roughness="1"></a-cylinder> <a-cylinder position="3.5 0.5 -3.6" radius="0.35" height="1" color="#6f4e37" roughness="1"></a-cylinder> <a-cylinder position="3.2 1.2 -3.3" radius="0.3" height="0.1" color="#8b5a2b"></a-cylinder> <a-sphere position="-4 0.4 -4" radius="0.5" color="#c2b280" roughness="1" scale="1 1.2 1"></a-sphere>
+      <a-sphere position="-3.6 0.35 -4.3" radius="0.4" color="#d2b48c" roughness="1" scale="1 1.1 1"></a-sphere>
+
+      <a-box position="-3 2.5 -4.7" width="2" height="0.05" depth="0.3" color="#5c4033"></a-box>
+      <a-box position="3 2.5 -4.7" width="2" height="0.05" depth="0.3" color="#5c4033"></a-box>
+
+      <a-entity light="type: ambient; color: #BBB; intensity: 0.3"></a-entity>
+      <a-entity light="type: point; intensity: 0.7; distance: 5; decay: 2; color: #ffcc99" position="0 3 -1"></a-entity>
+
+      <a-entity id="rig" movement-controls="constrainToNavMesh: false; speed: 0.1">
+        <a-entity camera position="0 1.6 0" look-controls>
+          <a-cursor visible="false"></a-cursor>
+        </a-entity>
+        <a-entity oculus-touch-controls="hand: left"></a-entity>
+        <a-entity oculus-touch-controls="hand: right"></a-entity>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
